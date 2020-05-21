@@ -30,12 +30,13 @@ def training_data():#currently only FEI database
     Happy_array = list()
     Sad_array = list()
 
-    for filename in os.listdir('images/FEISorted/Happy'):
+    for filename in os.listdir('images/FEISorted/Happy/'):
         print(imageLabelling('images/FEISorted/Happy/'+filename))
         data = matplotlib.image.imread('images/FEISorted/Happy/'+filename)
         Happy_array.append(data)
 
-    for filename in os.listdir('images/FEISorted/Sad'):
+    for filename in os.listdir('images/FEISorted/Sad/'):
+        print(imageLabelling('images/FEISorted/Sad/' + filename))
         data = matplotlib.image.imread('images/FEISorted/Sad/'+filename)
         Sad_array.append(data)
 
