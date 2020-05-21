@@ -14,26 +14,32 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.utils import check_random_state
 
 
+IMG_SIZE = 100
+
 
 def imageLabelling(imageArr):
-    labelName = imageArr.split('')
-    if(labelName=="Happy"):
-        return
+    imagepath = os.path.split(imageArr)
+    labelName = str(imagepath[0]).split('/')[-1]
+    if labelName == "Happy":
+        return [1,0]
+    elif labelName == "Sad":
+        return [0,1]
+
 
 def training_data():#currently only FEI database
     Happy_array = list()
     Sad_array = list()
 
     for filename in os.listdir('images/FEISorted/Happy'):
+        print(imageLabelling('images/FEISorted/Happy/'+filename))
         data = matplotlib.image.imread('images/FEISorted/Happy/'+filename)
-        data = data.reshape(100,100,3)
         Happy_array.append(data)
 
     for filename in os.listdir('images/FEISorted/Sad'):
         data = matplotlib.image.imread('images/FEISorted/Sad/'+filename)
         Sad_array.append(data)
 
-    print(Happy_array[4].shape)
+
 #def SetLabel():
 
 
